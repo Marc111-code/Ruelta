@@ -23,4 +23,16 @@ def countWords(p):
         return True
     else: 
         return False 
+import string
+def isACorrectPanel(p):
+    words = p.split()
+    llar = len(words)
+    if llar > 3:
+        return False
+    else:
+        for paraula in words:
+            for lletra in paraula:
+                if lletra not in string.ascii_letters:
+                    return False
+        return True
     
