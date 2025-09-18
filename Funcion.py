@@ -35,4 +35,29 @@ def isACorrectPanel(p):
                 if lletra not in string.ascii_letters:
                     return False
         return True
-    
+def secretPanel(p):
+    i = "'"
+    for paraula in p:
+        for lletra in paraula:
+            if lletra == " ":
+                i = i + " "
+            else:
+                i = i + "_"
+    i+= "'"
+    print(i)
+def containsLetter(p,c):
+    if c in p:
+        return True
+    else:
+        return False
+def updateSecretWord(w,sw,c):
+    i = 0
+    x = ""
+    for lletra in w:
+        if c == lletra:
+            x = x + lletra
+            i = i +1
+        else:
+            x = x + sw[i]
+            i = i +1
+    return x
