@@ -61,3 +61,8 @@ def updateSecretWord(w,sw,c):
             x = x + sw[i]
             i = i +1
     return x
+
+
+import random
+def generateNumber():
+        return random.randint(0, 5)
