@@ -66,3 +66,18 @@ def updateSecretWord(w,sw,c):
 import random
 def generateNumber():
         return random.randint(0, 5)
+
+
+def updatePoints(sw,c):
+    i = 0
+    for lletra in sw:
+        if lletra == c:
+            i  =  i + 1
+    return i
+
+def correctPanel(w,sol):
+    if w == sol:
+        return True
+    else:
+        return False
+
