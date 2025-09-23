@@ -23,6 +23,25 @@ def countWords(p):
         return True
     else: 
         return False 
+
+
+def game():
+    jugadorB = 0
+    jugadorC = 0
+    torn = "B"
+    topic = input("Jugador A, inserta el tema del panell secret: ")
+    secret = input("Jugador A, inserta el panell secret: ")
+    cleanScreen()
+    print("Juguem!")
+    print("El tema del panell secret és: " + topic)
+    
+    print("Torn de: " + torn)
+    print("La jugada dona "+ str(generateNumber()) + " punts")
+    print("El panell secret per revelar és: " + secretPanel(secret))
+    res1 = input("Vols resoldre el panell? (Y/N): ")
+    if res1 == "N" or res1 == "n":
+        lletP = input("Inserta la lletra: ")
+        if lletP == 
 import string
 def isACorrectPanel(p):
     words = p.split()
