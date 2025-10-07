@@ -100,4 +100,18 @@ def game():
     res1 = input("Vols resoldre el panell? (Y/N): ")
     if res1 == "N" or res1 == "n":
         lletP = input("Inserta la lletra: ")
-        if lletP == 
+        if lletP in secret:
+            print(updateSecretWord(secret,secretPanel(secret),lletP))
+            if torn == "B":
+                torn == "B"
+            if torn == "C":
+                torn == "C"
+            print("Turn of Player "+ torn)
+        else:
+            print("La solució és: "+ secret)
+            if torn == "B":
+                torn == "C"
+            if torn == "C":
+                Torn == "B"
+            print("Torn de: " + torn)
+game()
