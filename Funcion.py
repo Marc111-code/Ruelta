@@ -38,15 +38,15 @@ def isACorrectPanel(p):
                     return False
         return True
 def secretPanel(p):
-    i = "'"
+    i = ""
     for paraula in p:
         for lletra in paraula:
             if lletra == " ":
                 i = i + " "
             else:
                 i = i + "_"
-    i+= "'"
-    print(i)
+    i+= ""
+    return i
 def containsLetter(p,c):
     if c in p:
         return True
@@ -87,31 +87,41 @@ def correctPanel(w,sol):
 def game():
     jugadorB = 0
     jugadorC = 0
+    x = ''
     torn = "B"
     topic = input("Jugador A, inserta el tema del panell secret: ")
     secret = input("Jugador A, inserta el panell secret: ")
     cleanScreen()
     print("Juguem!")
     print("El tema del panell secret és: " + topic)
-    
-    print("Torn de: " + torn)
-    print("La jugada dona "+ str(generateNumber()) + " punts")
-    print("El panell secret per revelar és: " + secretPanel(secret))
-    res1 = input("Vols resoldre el panell? (Y/N): ")
-    if res1 == "N" or res1 == "n":
-        lletP = input("Inserta la lletra: ")
-        if lletP in secret:
-            print(updateSecretWord(secret,secretPanel(secret),lletP))
-            if torn == "B":
-                torn == "B"
-            if torn == "C":
-                torn == "C"
-            print("Turn of Player "+ torn)
+    while (x != secret or res1 == "y" or res1 == "Y"):
+        print("Torn de: " + torn)
+        n = str(generateNumber())
+        print("La jugada dona "+ n + " punts")
+        print("El panell secret per revelar és: ")
+        print(x)
+        res1 = input("Vols resoldre el panell? (Y/N): ")
+        if res1 == "N" or res1 == "n":
+            lletP = input("Inserta la lletra: ")
+            if lletP in secret:
+                secret = str(secret)
+                x = updateSecretWord(secret, str(secretPanel(secret)), lletP)
+                if torn == "B":
+                    jugadorB = jugadorB + int(n)
+                if torn == "C":
+                    jugadorA = jugadorA + int(n) 
+                print(x)
+                if torn == "B":
+                    torn == "B"
+                if torn == "C":
+                    torn == "C"
+                print("Turn of Player "+ torn)
+            else:
+                if torn == "B":
+                    torn == "C"
+                if torn == "C":
+                    Torn == "B"
+                print("Torn de: " + torn)
         else:
-            print("La solució és: "+ secret)
-            if torn == "B":
-                torn == "C"
-            if torn == "C":
-                Torn == "B"
-            print("Torn de: " + torn)
+            print("El panell secret és: " + secret)
 game()
