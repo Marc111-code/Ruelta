@@ -123,7 +123,7 @@ def game():
                 if torn == "B":
                     torn == "C"
                 if torn == "C":
-                    Torn == "B"
+                    torn == "B"
         else:
             print("El panell secret és: " + secret)
             b = False
