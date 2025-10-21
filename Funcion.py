@@ -56,7 +56,7 @@ def updateSecretWord(w,sw,c):
     i = 0
     x = ""
     for lletra in w:
-        if c == lletra:
+        if lletra in c:
             x = x + lletra
             i = i +1
         else:
@@ -89,12 +89,15 @@ def game():
     jugadorC = 0
     x = ''
     torn = "B"
+    lletP = ''
+    res1= ''
+    b = True
     topic = input("Jugador A, inserta el tema del panell secret: ")
     secret = input("Jugador A, inserta el panell secret: ")
     cleanScreen()
     print("Juguem!")
     print("El tema del panell secret és: " + topic)
-    while (x != secret or res1 == "y" or res1 == "Y"):
+    while (x != secret and b==True):
         print("Torn de: " + torn)
         n = str(generateNumber())
         print("La jugada dona "+ n + " punts")
@@ -102,7 +105,7 @@ def game():
         print(x)
         res1 = input("Vols resoldre el panell? (Y/N): ")
         if res1 == "N" or res1 == "n":
-            lletP = input("Inserta la lletra: ")
+            lletP = lletP + input("Inserta la lletra: ")
             if lletP in secret:
                 secret = str(secret)
                 x = updateSecretWord(secret, str(secretPanel(secret)), lletP)
@@ -115,13 +118,16 @@ def game():
                     torn == "B"
                 if torn == "C":
                     torn == "C"
-                print("Turn of Player "+ torn)
+
             else:
                 if torn == "B":
                     torn == "C"
                 if torn == "C":
                     Torn == "B"
-                print("Torn de: " + torn)
         else:
             print("El panell secret és: " + secret)
+            b = False
+    print("Felicitats!")
+    print("El jugador B té " + str(jugadorB) + " punts")
+    print("El jugador C té " + str(jugadorC) + " punts")    
 game()
