@@ -97,6 +97,7 @@ def game():
     cleanScreen()
     print("Juguem!")
     print("El tema del panell secret és: " + topic)
+    x = secretPanel(secret)
     while (x != secret and b==True):
         print("Torn de: " + torn)
         n = str(generateNumber())
@@ -111,19 +112,19 @@ def game():
                 x = updateSecretWord(secret, str(secretPanel(secret)), lletP)
                 if torn == "B":
                     jugadorB = jugadorB + int(n)
-                if torn == "C":
+                elif torn == "C":
                     jugadorA = jugadorA + int(n) 
                 print(x)
                 if torn == "B":
-                    torn == "B"
-                if torn == "C":
-                    torn == "C"
+                    torn = "B"
+                elif torn == "C":
+                    torn = "C"
 
             else:
                 if torn == "B":
-                    torn == "C"
-                if torn == "C":
-                    torn == "B"
+                    torn = "C"
+                elif torn == "C":
+                    torn = "B"
         else:
             print("El panell secret és: " + secret)
             b = False
